@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package lab05.ex02;
+package lab05.ex04;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -19,8 +19,8 @@ import java.net.UnknownHostException;
 public class Client extends javax.swing.JFrame {
     
     Socket socketOfClient = null;
-       BufferedWriter os = null;
-       BufferedReader is = null;
+    BufferedWriter os = null;
+    BufferedReader is = null;
     /**
      * Creates new form Client
      */
@@ -163,7 +163,6 @@ public class Client extends javax.swing.JFrame {
         // TODO add your handling code here:
         String message = MesseageText.getText();
         /////////////////////////////////////
-        resultArea.setText(resultArea.getText() + "\n" + message);
         Thread thclient = new Thread() {
           @Override
           public void run() {
@@ -218,6 +217,9 @@ public class Client extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Client.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

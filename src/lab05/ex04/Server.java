@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package lab05.ex02;
+package lab05.ex04;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -19,10 +19,10 @@ import java.net.Socket;
 public class Server extends javax.swing.JFrame {
     
     ServerSocket listener = null;
-        String line;
-        BufferedReader is;
-        BufferedWriter os;
-        Socket socketOfServer = null;
+    String line;
+    BufferedReader is;
+    BufferedWriter os;
+    Socket socketOfServer = null;
         
         
 
@@ -101,18 +101,8 @@ public class Server extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void startServerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startServerActionPerformed
-        // TODO add your handling code here:
-        int port = Integer.parseInt(Port.getText());
-        //Start server with port input from user
-        try {
-           listener = new ServerSocket(port);
-       } catch (IOException e) {
-           
-       }
-        
-        Thread thserver = new Thread() {
+    
+    public class ServerThread extends Thread {
           @Override
           public void run() {
             try {
@@ -126,7 +116,7 @@ public class Server extends javax.swing.JFrame {
            while (true) {
                line = is.readLine();
                ResultArea.setText(ResultArea.getText() + "\nClient: " + line);
-               os.write(">> " + line);
+               os.write(">> " + line);ResultArea.setText(ResultArea.getText() + "\nClient: " + line);
                os.newLine();
                os.flush();  
  
@@ -143,8 +133,20 @@ public class Server extends javax.swing.JFrame {
        }
        ResultArea.setText(ResultArea.getText() + "\nSever stopped!");  
           } 
-       };
-       thserver.start();
+    }
+    
+    private void startServerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startServerActionPerformed
+        // TODO add your handling code here:
+        int port = Integer.parseInt(Port.getText());
+        //Start server with port input from user
+        try {
+           listener = new ServerSocket(port);
+       } catch (IOException e) {
+           
+       }
+        
+        ServerThread th = new ServerThread();
+        th.start();
         
         
     }//GEN-LAST:event_startServerActionPerformed
@@ -174,6 +176,9 @@ public class Server extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Server.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

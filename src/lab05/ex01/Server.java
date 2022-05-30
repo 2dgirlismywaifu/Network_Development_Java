@@ -29,6 +29,7 @@ public class Server {
        BufferedWriter os;
        Socket socketOfServer = null;
        
+       
        try {
            listener = new ServerSocket(9999);
        } catch (IOException e) {
