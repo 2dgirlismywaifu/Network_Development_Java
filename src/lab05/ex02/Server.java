@@ -48,6 +48,9 @@ public class Server extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         ResultArea = new javax.swing.JTextArea();
         startServer = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        MesseageInput = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -67,6 +70,14 @@ public class Server extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel3.setText("Messeange");
+
+        MesseageInput.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+
+        jButton1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jButton1.setText("Send");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -83,7 +94,14 @@ public class Server extends javax.swing.JFrame {
                         .addComponent(Port, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
                         .addComponent(startServer)
-                        .addGap(61, 61, 61))))
+                        .addGap(61, 61, 61))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(18, 18, 18)
+                        .addComponent(MesseageInput, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -95,7 +113,12 @@ public class Server extends javax.swing.JFrame {
                     .addComponent(startServer))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(MesseageInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         pack();
@@ -126,9 +149,9 @@ public class Server extends javax.swing.JFrame {
            while (true) {
                line = is.readLine();
                ResultArea.setText(ResultArea.getText() + "\nClient: " + line);
-               os.write(">> " + line);
-               os.newLine();
-               os.flush();  
+//               os.write(">> " + line);
+//               os.newLine();
+//               os.flush();  
  
                if (line.equals("QUIT")) {
                    os.write(">> OK");
@@ -183,9 +206,12 @@ public class Server extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField MesseageInput;
     private javax.swing.JTextField Port;
     private javax.swing.JTextArea ResultArea;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     protected javax.swing.JButton startServer;
     // End of variables declaration//GEN-END:variables

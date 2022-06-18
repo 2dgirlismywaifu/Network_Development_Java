@@ -40,22 +40,22 @@ public class EX01 {
       
       //Output stream
       //the dir folder may difficult than windows
-      try { 
-
-           File dir = new File("/home/notmiyouji/Documents/GitHub/Network_development_Java//Test"); 
-           dir.mkdirs();                       
-           OutputStream os = new FileOutputStream("/home/notmiyouji/Documents/GitHub/Network_development_Java//Test/test_writerOutputStream.txt");  
-           //input string by using array.
-           byte[] by = new byte[] { 'H', 'e', 'l', 'l', 'o', ' ', 31, 34, 92 }; 
-           byte[] by2 = new byte[] { 'H', 'e', 'l', 'l', 'o', ' ', 'b', 'o', 'y' }; 
-          
-          os.write(by); 
-          os.flush(); 
-          os.write(by2); 
-          os.close(); 
-      } catch (IOException e) { 
-          System.out.println("File NOT FOUND!");
-      } 
+//      try { 
+//
+//           File dir = new File("/home/notmiyouji/Documents/GitHub/Network_development_Java//Test"); 
+//           dir.mkdirs();                       
+//           OutputStream os = new FileOutputStream("/home/notmiyouji/Documents/GitHub/Network_development_Java//Test/test_writerOutputStream.txt");  
+//           //input string by using array.
+//           byte[] by = new byte[] { 'H', 'e', 'l', 'l', 'o', ' ', 31, 34, 92 }; 
+//           byte[] by2 = new byte[] { 'H', 'e', 'l', 'l', 'o', ' ', 'b', 'o', 'y' }; 
+//          
+//          os.write(by); 
+//          os.flush(); 
+//          os.write(by2); 
+//          os.close(); 
+//      } catch (IOException e) { 
+//          System.out.println("File NOT FOUND!");
+//      } 
 
   } 
 }

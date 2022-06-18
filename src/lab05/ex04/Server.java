@@ -116,7 +116,7 @@ public class Server extends javax.swing.JFrame {
            while (true) {
                line = is.readLine();
                ResultArea.setText(ResultArea.getText() + "\nClient: " + line);
-               os.write(">> " + line);ResultArea.setText(ResultArea.getText() + "\nClient: " + line);
+               os.write(">> " + line);
                os.newLine();
                os.flush();  
  
